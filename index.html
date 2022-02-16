@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="theme">
+      <input type="checkbox" name="checkbox" id="toggle-theme" />
+      <label for="toggle-theme" class="toggle-icon">
+        <i class="bi bi-sun-fill sun-icon"></i>
+        <i class="bi bi-moon-stars-fill moon-icon"></i>
+      </label>
+    </div>
+    <h1>Book Library</h1>
+    <div class="container">
+      <form action="">
+        <label for="book-title">Title</label>
+        <input type="text" name="title" id="book-title" required />
+        <label for="book-author">Author</label>
+        <input type="text" name="author" id="book-author" required />
+        <label for="book-current-page">Current Page</label>
+        <input type="number" name="current page" id="book-current-page" min="1" required />
+        <label for="book-max-pages">Maximum Pages</label>
+        <input type="number" name="maximum page" id="book-max-pages" min="1" required />
+        <label for="book-status">Status</label>
+        <select name="status" id="book-status">
+          <option value="plan to read">Plan to Read</option>
+          <option value="reading">Reading</option>
+          <option value="completed">Completed</option>
+        </select>
+        <button type="submit" class="add-book">Add Book</button>
+      </form>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody class="table-body"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
