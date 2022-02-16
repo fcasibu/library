@@ -112,8 +112,8 @@ document.addEventListener("click", (e) => {
 function changePage(e) {
   if (e.target.classList.contains("pages")) {
     const index = e.target.parentElement.dataset.index;
-    const currentEdit = prompt("Current Page");
-    const maxEdit = prompt("Maximum Page");
+    const currentEdit = prompt("Current Page", myLibrary[index].currentPage);
+    const maxEdit = prompt("Maximum Page", myLibrary[index].maxPages);
     myLibrary[index].currentPage = currentEdit;
     myLibrary[index].maxPages = maxEdit;
   }

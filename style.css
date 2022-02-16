@@ -138,7 +138,7 @@ tr {
 
 .delete-button {
   position: absolute;
-  right: 20px;
+  right: 15px;
   background: var(--danger);
   color: var(--white);
   font-weight: bold;
@@ -214,4 +214,26 @@ tr {
 
 .pages:hover {
   color: var(--success);
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .delete-button {
+    right: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .delete-button {
+    left: -15px;
+  }
 }
