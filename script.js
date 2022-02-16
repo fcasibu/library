@@ -10,7 +10,7 @@ const bookStorage = localStorage.getItem("books");
 let myLibrary = [];
 
 function getLocalStorage() {
-  if (!localStorage.getItem("books")) {
+  if (localStorage.getItem("books") === null) {
     myLibrary = [];
   } else {
     const libraryItems = JSON.parse(localStorage.getItem("books"));
@@ -100,6 +100,15 @@ function displayBooks() {
 
 window.onload = displayBooks();
 
+document.addEventListener("click", (e) => {
+  changePage(e);
+  changeStatus(e);
+  deleteButton(e);
+  submitButton(e);
+  setLocalStorage();
+  displayBooks();
+});
+
 function changePage(e) {
   if (e.target.classList.contains("pages")) {
     const index = e.target.parentElement.dataset.index;
@@ -138,7 +147,7 @@ function deleteButton(e) {
 }
 
 function submitButton(e) {
-  if (e.target.type === "submit") {
+  if (e.target.classList.contains("add-book")) {
     e.preventDefault();
     if (
       bookTitle.value.length &&
@@ -154,15 +163,6 @@ function submitButton(e) {
     }
   }
 }
-
-document.addEventListener("click", (e) => {
-  changePage(e);
-  changeStatus(e);
-  deleteButton(e);
-  submitButton(e);
-  setLocalStorage();
-  displayBooks();
-});
 
 const currentTheme = localStorage.getItem("theme");
 const toggleTheme = document.querySelector("#toggle-theme");
