@@ -10,7 +10,7 @@ Library Project made with HTML, CSS, and Javscript for The Odin Project Javascri
 
 - The Odin Project: [https://www.theodinproject.com/](https://www.theodinproject.com/)
 
-- Live Demo: [https://nevz9.github.io/etch-a-sketch/](https://nevz9.github.io/etch-a-sketch/)
+- Live Demo: [https://nevz9.github.io/etch-a-sketch/](https://nevz9.github.io/library)
 
 ### Built with
 
