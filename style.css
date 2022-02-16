@@ -144,6 +144,7 @@ tr {
   font-weight: bold;
   border-radius: 0.2rem;
   border: none;
+  width:max-content;
   padding: 0.3rem 0.5rem;
   cursor: pointer;
 }
