@@ -10,8 +10,12 @@ const bookStorage = localStorage.getItem("books");
 let myLibrary = [];
 
 function getLocalStorage() {
-  const libraryItems = JSON.parse(localStorage.getItem("books"));
-  myLibrary = libraryItems;
+  if (!localStorage.getItem("books")) {
+    myLibrary = [];
+  } else {
+    const libraryItems = JSON.parse(localStorage.getItem("books"));
+    myLibrary = libraryItems;
+  }
 }
 
 function setLocalStorage() {
