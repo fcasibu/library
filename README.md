@@ -4,7 +4,7 @@ Library Project made with HTML, CSS, and Javscript for The Odin Project Javascri
 
 ### Preview
 
-![](preview.png)
+![](./preview.png)
 
 ### Links
 
