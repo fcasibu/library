@@ -9,7 +9,11 @@ function Book(title, author, currentPage, totalPage, status) {
 }
 
 function setLocalStorage() {
-  const sortedBooks = myLibrary.sort((a, b) => a.status < b.status);
+  const sortedBooks = myLibrary.sort((a, b) => {
+    if (a.status > b.status) {
+      return -1;
+    }
+  });
   localStorage.setItem("books", JSON.stringify(sortedBooks));
 }
 
@@ -38,7 +42,7 @@ function getTotal() {
       Reading: 0,
       Completed: 0,
       "Plan to Read": 0,
-      Dropped: 0
+      Dropped: 0,
     }
   );
   reading.textContent = bookTotal.Reading;
