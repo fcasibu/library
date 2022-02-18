@@ -74,28 +74,24 @@ function addBookToLibrary() {
 
 function generateTitle(parent, index) {
   const title = document.createElement("td");
-  title.dataset.name = "title";
   title.textContent = myLibrary[index].title;
   parent.appendChild(title);
 }
 
 function generateAuthor(parent, index) {
   const author = document.createElement("td");
-  author.dataset.name = "author";
   author.textContent = myLibrary[index].author;
   parent.appendChild(author);
 }
 
 function generatePages(parent, index) {
   const page = document.createElement("td");
-  page.dataset.name = "page";
   page.textContent = `${myLibrary[index].currentPage} / ${myLibrary[index].totalPage}`;
   parent.appendChild(page);
 }
 
 function generateStatus(parent, index) {
   const status = document.createElement("td");
-  status.dataset.name = "status";
   status.classList.add("status");
   status.textContent = myLibrary[index].status;
   switch (myLibrary[index].status) {
@@ -180,25 +176,21 @@ function editBook(e) {
     editBookTotalPage.value = myLibrary[index].totalPage;
     editBookStatus.value = myLibrary[index].status;
 
-    editBookButton.addEventListener(
-      "click",
-      (event) => {
-        event.preventDefault();
-        if (event.target.dataset.index === index) {
-          myLibrary[index].title = editBookTitle.value;
-          myLibrary[index].author = editBookAuthor.value;
-          myLibrary[index].currentPage = editBookCurrentPage.value;
-          myLibrary[index].totalPage = editBookTotalPage.value;
-          myLibrary[index].status = editBookStatus.value;
-          editModal.classList.remove("show-edit-modal");
-          setLocalStorage();
-          displayBooks();
-        } else {
-          return;
-        }
-      },
-      false
-    );
+    editBookButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (event.target.dataset.index === index) {
+        myLibrary[index].title = editBookTitle.value;
+        myLibrary[index].author = editBookAuthor.value;
+        myLibrary[index].currentPage = editBookCurrentPage.value;
+        myLibrary[index].totalPage = editBookTotalPage.value;
+        myLibrary[index].status = editBookStatus.value;
+        editModal.classList.remove("show-edit-modal");
+        setLocalStorage();
+        displayBooks();
+      } else {
+        return;
+      }
+    });
   }
 }
 
