@@ -1,0 +1,307 @@
+/* Start of Globals */
+
+:root {
+  --light-shade: #f4f4f4;
+  --white: #f4f4f4;
+  --light-accent: #659e9d;
+  --primary-color: #4162a8;
+  --dark-accent: #247eb5;
+  --dark-shade: #1a1822;
+  --info: #191722;
+  --success: #49986a;
+  --warning: #c68832;
+  --danger: #f44336;
+}
+
+[data-theme="dark"] {
+  --light-shade: #1a1822;
+  --dark-shade: #f4f4f4;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  background: var(--light-shade);
+  color: var(--dark-shade);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* End of Globals */
+
+/* Start of Library Components */
+/* Containers */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 940px;
+}
+
+/* End of Containers */
+
+/* Start of Total Books */
+
+.total-books {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+h2 {
+  font-size: 0.9rem;
+}
+
+/* End of Total Books */
+
+/* Start of Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+form input {
+  background: none;
+  color: var(--dark-shade);
+  padding: 0.2rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.2rem;
+}
+
+form select {
+  background: var(--light-shade);
+  border: 1px solid var(--primary-color);
+  color: var(--dark-shade);
+  border-radius: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  background: var(--primary-color);
+  color: var(--white);
+  border: 0;
+  border-radius: 0.2rem;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  transition: background 200ms ease-in-out;
+}
+
+.btn:hover {
+  background: var(--dark-accent);
+}
+
+/* End of Form */
+
+/* Start of Table */
+table {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+table thead {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+table tr {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+table td {
+  max-width: 15ch;
+  word-wrap: break-word;
+  margin: 0 auto;
+}
+
+.book-row {
+  position: relative;
+  align-items: center;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.status {
+  width: 12ch;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0;
+}
+
+.reading-style {
+  border: 1px solid var(--success);
+  color: var(--success);
+}
+
+.completed-style {
+  border: 1px solid var(--dark-accent);
+  color: var(--dark-accent);
+}
+
+.plan-to-read-style {
+  border: 1px solid var(--light-accent);
+  color: var(--light-accent);
+}
+
+.dropped-style {
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+.buttons-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.buttons-container i {
+  padding: 0.3rem;
+  width: 15px;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.edit-button {
+  background: var(--success);
+  color: var(--white);
+}
+
+.delete-button {
+  background: var(--danger);
+  color: var(--white);
+}
+
+/* End of Table */
+/* End of Library Components */
+
+/* Start of Edit Modal */
+
+.edit-modal {
+  display: none;
+  position: fixed;
+  background: var(--light-shade);
+  color: var(--dark-shade);
+  border: 1px solid var(--dark-shade);
+  width: max-content;
+  height: max-content;
+  padding: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.3rem;
+}
+
+.show-edit-modal {
+  display: block;
+}
+
+/* End of Edit Modal */
+
+/* Start of Theme Toggler */
+
+.theme {
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 0.4rem;
+  background: none;
+  border: 2px solid var(--dark-shade);
+  overflow: hidden;
+}
+
+.theme label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--dark-shade);
+  cursor: pointer;
+}
+
+#toggle-theme {
+  position: absolute;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.sun-icon {
+  position: absolute;
+  transition: transform 500ms ease-in-out;
+}
+
+.moon-icon {
+  position: absolute;
+  transform: translateY(200%);
+  transition: transform 500ms ease-in-out;
+}
+
+#toggle-theme:checked + label .sun-icon {
+  transform: translateY(-200%);
+}
+
+#toggle-theme:checked + label .moon-icon {
+  transform: translateY(0);
+}
+
+/* End of Theme Toggler */
+
+/* Start of Media Queries */
+@media (max-width: 960px) {
+  .container {
+    align-items: center;
+    width: 90vw;
+  }
+
+  .total-books {
+    text-align: center;
+  }
+
+  .row-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    width: 90vw;
+    text-align: left;
+  }
+
+  table {
+    width: 90vw;
+  }
+
+  .edit-modal-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .total-books {
+    gap: 1rem;
+  }
+}
+
+/* End of Media Queries */
